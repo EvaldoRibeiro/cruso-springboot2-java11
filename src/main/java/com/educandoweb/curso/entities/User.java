@@ -7,32 +7,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
 @Entity
-public class User implements Serializable  {
-	
+public class User implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String name;
 	private String email;
-	private String phone;
+	private String name;
 	private String password;
-	
+	private String phone;
+
 	public User() {
-		
+
 	}
 
-	public User(long id, String name, String email, String phone, String password) {
+	public User(long id, String email, String name, String password, String phone) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.phone = phone;
-		this.password = password;
+		this.name = email;
+		this.email = name;
+		this.phone = password;
+		this.password = phone;
+	}
+
+	public User(Object object, String string, String string2, String string3, String string4) {
+
 	}
 
 	public long getId() {
@@ -96,7 +98,5 @@ public class User implements Serializable  {
 			return false;
 		return true;
 	}
-	
-	
 
 }
